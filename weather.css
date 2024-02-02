@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    height: 100vh; /* Ensure full viewport height */
+    overflow: hidden; /* Prevent scrollbar due to animation */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #00feba, #5b548a, #2d0f66); /* Default background */
+    animation: weatherBackground 10s infinite alternate; /* Background animation */
+}
+
+@keyframes weatherBackground {
+    0% {
+        background: linear-gradient(135deg, #26074a, #5b548a, #2d0f66); /* Initial background */
+    }
+    25% {
+        background: linear-gradient(135deg, #00feba, #5b548a, #2d0f66); /* Initial background */
+    }
+    50% {
+        background: linear-gradient(135deg, #00feba, #099e33, #680535); /* Initial background */
+    }
+    75% {
+        background: linear-gradient(135deg, #88511d, #5b548a, #2d0f66); /* Initial background */
+    }
+    100% {
+        background: linear-gradient(135deg, #00feba, #5b548a, #2d0f66); /* Final background */
+    }
+}
+
+
+.card {
+    width: 90%;
+    max-width: 470px;
+    background: linear-gradient(165deg, #00feba, #80df9a, #2d0f66); /* Updated gradient colors */
+    color: #fff;
+    margin: 40px auto 0;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+    animation: fadeInScale 0.5s ease-in-out;
+    transition: transform 0.3s ease-in-out; /* Add transition for hover effect */
+}
+
+
+.card:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.search {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search input {
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    color: #555;
+    padding: 10px 25px;
+    height: 60px;
+    border-radius: 30px;
+    flex: 1;
+    margin-right: 16px;
+    font-size: 18px;
+    transition: transform 0.3s ease-in-out; /* Add transition for animation effect */
+}
+
+.search input:focus {
+    transform: scale(1.05); /* Scale up the input on focus */
+}
+
+
+.search button {
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out; /* Add transition for hover effect */
+}
+
+.search button:hover {
+    transform: scale(1.1); /* Scale up on hover */
+}
+
+.search button img {
+    width: 16px;
+    transition: transform 0.5s ease-in-out; /* Add transition for icon change */
+}
+
+.search button:hover img {
+    transform: rotate(360deg); /* Rotate the icon on hover */
+}
+
+
+.weather-icon {
+    width: 170px;
+    margin-top: 30px;
+    transition: transform 0.3s ease-in-out; /* Add transition for hover effect */
+}
+
+.weather-icon:hover {
+    transform: scale(1.1); /* Scale up the weather icon on hover */
+}
+
+@keyframes pulseAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.weather-icon.animation {
+    animation: pulseAnimation 1s ease-in-out infinite; /* Add pulse animation */
+}
+
+
+.weather h1 {
+    font-size: 80px;
+    font-weight: 500;
+    position: relative;
+    display: inline-block;
+    top: -39px;
+    animation: waveAnimation 1.5s infinite linear;
+}
+
+@keyframes waveAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+.weather h2 {
+    font-size: 45px;
+    font-weight: 400;
+    margin-top: -10px;
+}
+
+.details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 50px;
+}
+
+.col {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.col img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.humidity,
+.wind {
+    font-size: 28px;
+    margin-top: -6px;
+}
+
+.weather {
+    display: none;
+}
+
+.error {
+    text-align: left;
+    margin-left: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+}
